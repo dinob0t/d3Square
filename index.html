@@ -1,38 +1,34 @@
-  <!DOCTYPE html>
-  <meta charset="utf-8">
-  <body>
-  <!DOCTYPE html>
-  <meta charset="utf-8">
-  <script src="http://d3js.org/d3.v3.min.js"></script>
-  <script>
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
 
-  var date =  [1, 2, 3, 4, 5, 6]
-  var count = [0, 5,13, 2, 6, 7]
+var date =  [1, 2, 3, 4, 5, 6]
+var count = [0, 5, 13, 2, 6, 13]
 
-  var colorList = ["#1e6823" , "#44a340", "#8cc665", "#d6e685", "#eeeeee"]
-    var colorList = ["#eeeeee", "#d6e685", "#8cc665", "#44a340", "#1e6823" , "#44a340"]
-  var colorNum = 5
+var colorList = ["#eeeeee", "#d6e685", "#8cc665", "#44a340", "#1e6823" , "#44a340"]
+var colorNum = 5
 
-  var countLength = count.length
-  var latestCount = count[countLength-1] 
-  var maxCounts = d3.max(count)   
+var countLength = count.length
+var latestCount = count[countLength-1] 
+var maxCounts = d3.max(count)   
 
-  //Make an SVG Container
-   var svgContainer = d3.select("body").append("svg")
-                                       .attr("width", 200)
-                                       .attr("height", 200);
-   //Draw the Rectangle
-   var rectangle = svgContainer.append("rect")
-                               .attr("x", 10)
-                               .attr("y", 10)
-                               .attr("width", 100)
-                               .attr("height", 100)
-                               .attr("fill", function(d) { 
+//Make an SVG Container
+ var svgContainer = d3.select("body").append("svg")
+                                     .attr("width", 200)
+                                     .attr("height", 200);
+ //Draw the Rectangle
+ var rectangle = svgContainer.append("rect")
+                             .attr("x", 10)
+                             .attr("y", 10)
+                             .attr("width", 100)
+                             .attr("height", 100)
+                             .attr("fill", function(d) { 
                                 tmp = ((colorNum-1)*latestCount/maxCounts)
                                 tmp =  d3.round(tmp)
                                 if (latestCount>0) {
                                   if( tmp===0) {tmp=1} 
                                 }
                                 return colorList[tmp];
-                                });
-  </script>
+                              });
+</script>
